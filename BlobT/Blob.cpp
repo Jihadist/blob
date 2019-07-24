@@ -1,11 +1,6 @@
 #include "Blob.h"
 
 
-template<typename T>
-Blob<T>::Blob(std::initializer_list<T> il) :
-	data(std::make_shared<std::vector<T>>(il))
-{
-}
 
 template<typename T>
 BlobPtr<T> Blob<T>::begin()

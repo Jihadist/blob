@@ -3,7 +3,8 @@
 #include <vector>
 #include <memory>
 #include <string>
-
+template<typename >
+class Blob;
 
 template <typename T>
 class BlobPtr
@@ -13,8 +14,7 @@ public:
 	BlobPtr():curr(0){}
 	BlobPtr(Blob<T>& a, std::size_t sz = 0) :
 		wptr(a.data), curr(sz) { }
-	//explicit BlobPtr(Blob<T> &a,size_t sz=0):wptr(a.data),curr(sz){}
-	//explicit BlobPtr(const Blob<T>& a, const size_t sz = 0) : wptr(a.data), curr(sz) { }
+	BlobPtr(const Blob<T>& a, const size_t sz = 0) : wptr(a.data), curr(sz) { }
 
 
 	friend bool operator==(const BlobPtr&lhs, const BlobPtr<T>&rhs){ return lhs.curr==rhs.curr; }

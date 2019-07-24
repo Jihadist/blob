@@ -5,8 +5,8 @@
 #include <stdexcept>
 #include "BlobPtr.h"
 
-template<typename >
-class BlobPtr;
+//template<typename >
+//class BlobPtr;
 
 template<typename T>
 class Blob
@@ -22,10 +22,9 @@ public:
 	typedef T value_type;
 	typedef typename std::vector<T>::size_type size_type;
 
-	//Blob();
-	Blob(std::initializer_list<T> il);
-	//Blob():data(std::make_shared<std::vector<T>>()) {}
+	Blob();
 
+	Blob(std::initializer_list<T> il);
 
 
 	BlobPtr<T> begin();
@@ -49,4 +48,7 @@ private:
 	void check(size_type i, const std::string& msg) const;
 };
 
-
+template<typename T>
+inline
+Blob<T>::Blob(std::initializer_list<T> il) :
+	data(std::make_shared<std::vector<T>>(il)) { }
