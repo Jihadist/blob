@@ -26,6 +26,8 @@ public:
 
 	Blob(std::initializer_list<T> il);
 
+	template<typename It>
+	Blob(It, It);
 
 	BlobPtr<T> begin();
 	BlobPtr<T> end();

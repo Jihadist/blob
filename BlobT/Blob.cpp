@@ -1,6 +1,12 @@
 #include "Blob.h"
 
 
+template <typename T>
+template <typename It>
+Blob<T>::Blob(It b, It e)
+{
+	data(std::make_shared<std::vector<T>>(b, e));
+}
 
 template<typename T>
 BlobPtr<T> Blob<T>::begin()
